@@ -18,7 +18,7 @@ R: O site usa o fetch() do JavaScript para fazer uma requisição à API e receb
 
 5- um print da tela funcionando
 
-R: Disponível no "telaFuncionando.png".
+R: Disponível em "telaFuncionando.png".
 
 6- Uma dificuldade que tivemos?
 
