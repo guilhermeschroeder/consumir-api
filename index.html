@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerar Dica</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Gerador de dicas</h1>
+
+        <button onclick="buscarDica()">Dar Dica</button>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script>
+        async function buscarDica() {
+
+            const resultado = document.getElementById("resultado");
+
+            try {
+
+                const resposta = await fetch(
+                    "https://api.adviceslip.com/advice"
+                );
+
+                const dados = await resposta.json();
+
+                resultado.innerHTML = `
+                    <h2>${dados.slip.advice}</h2>
+                `;
+
+            } catch (erro) {
+
+                resultado.innerHTML = `
+                    <h2>Erro ao buscar a dica.</h2>
+                `;
+
+                console.log(erro);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
